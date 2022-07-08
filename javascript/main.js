@@ -22,6 +22,7 @@ let prod6 = new Crearproducto(6, "Buzo Liso", "blanco", "buzo", 5000.00, "buzo-b
 let prod7 = new Crearproducto(7, "Buzo Capucha", "negro", "buzo", 5500.00, "buzo-negro-capucha.webp")
 let prod8 = new Crearproducto(8, "Buzo Capucha", "blanco", "buzo", 5500.00, "buzo-blanco-capucha.jpg")
 
+
 listaProductos.push(prod1);
 listaProductos.push(prod2);
 listaProductos.push(prod3);
@@ -30,6 +31,7 @@ listaProductos.push(prod5);
 listaProductos.push(prod6);
 listaProductos.push(prod7);
 listaProductos.push(prod8);
+
 
 //array con filtros
 
@@ -73,14 +75,11 @@ function botonFiltro(id, array) { //id del boton y array que quiero mostrar en e
     let btnFiltro = document.getElementById(id)
     btnFiltro.addEventListener('click', respClick) //evento al click en el boton
     function respClick() {
-
-        document.getElementById("filtro-todos").style.color = "black"
-        document.getElementById("filtro-blanco").style.color = "black"
-        document.getElementById("filtro-negro").style.color = "black"
-        document.getElementById("filtro-buzo").style.color = "black"
-        document.getElementById("filtro-remera").style.color = "black"
+        let filtros = document.getElementsByClassName("filtro")
+        for (let filtro of filtros){
+            filtro.style.color = "black"
+        }
         document.getElementById(id).style.color = "red"
-
         borrarCards()
         crearCardsFiltro(array) //crea las cards del array q le pase
     }
